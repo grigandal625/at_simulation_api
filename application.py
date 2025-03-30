@@ -21,6 +21,9 @@ from src.providers.model import get_model_service
 from src.providers.processor import get_processor_service
 from src.providers.translator import get_translator_service
 from src.worker.worker import ATSimulationWorker
+import logging
+
+logging.basicConfig(level=logging.INFO)
 
 
 @asynccontextmanager

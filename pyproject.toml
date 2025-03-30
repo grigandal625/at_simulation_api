@@ -20,6 +20,7 @@ python-json-logger = "^3.2.1"
 rich = "^13.9.4"
 pydantic-settings = "^2.7.1"
 urllib3 = "^2.3.0"
+poetry-dotenv-plugin = "^0.2.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"

@@ -1,7 +1,7 @@
 
 include docker/local/.env
 run:
-	bash -c "poetry run python application.py"
+	POETRY_PLUGIN_DOTENV_LOCATION="docker/local/.env" poetry run python application.py
 
 clear:
 	find . -type d -name '__pycache__' -exec rm -rf {} +

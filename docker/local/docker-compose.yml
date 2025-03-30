@@ -12,6 +12,7 @@ services:
       POSTGRES_USER: ${DB_USER}
       POSTGRES_PASSWORD: ${DB_PASS}
       POSTGRES_DB: ${DB_NAME}
+      PGPORT: ${DB_PORT}
     restart: unless-stopped
     networks:
       - custom-network
