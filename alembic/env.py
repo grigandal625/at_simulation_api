@@ -3,14 +3,14 @@ from logging.config import fileConfig
 from sqlalchemy import engine_from_config, pool
 
 from alembic import context
-from src.config.postgres import PostgresStore
-from src.schema.base import Base
-from src.schema.function import *
-from src.schema.imports import *
-from src.schema.model import *
-from src.schema.resource import *
-from src.schema.template import *
-from src.schema.visio import *
+from at_simulation_api.config.postgres import PostgresStore
+from at_simulation_api.schema.base import Base
+from at_simulation_api.schema.function import *
+from at_simulation_api.schema.imports import *
+from at_simulation_api.schema.model import *
+from at_simulation_api.schema.resource import *
+from at_simulation_api.schema.template import *
+from at_simulation_api.schema.visio import *
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.

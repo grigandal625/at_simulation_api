@@ -22,6 +22,4 @@ RUN poetry install --no-root
 
 COPY . .
 
-RUN chmod +x ./application.py
-
-CMD ["poetry", "run", "python", "./application.py"]
+CMD ["poetry", "run", "python", "-m"  "at_simulation_api"]
