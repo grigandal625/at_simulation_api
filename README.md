@@ -104,4 +104,4 @@ sequenceDiagram
 13. `make run` - запустится бэкенд на адресе http://0.0.0.0:8081 или http://127.0.0.1:8081
 14. запустить фронтенд на http://127.0.0.1:5000/ командой `docker run --name at-simulation-front -d -p 5000:5000 -e PORT=5000 -e API_PORT=8081 grigandal625/at-simulation-subsystem-front:latest`
 15. Получить токен пользователя из сваггера AT_USER (пункт 1.)
-16. 
+16. Перейти по http://127.0.0.1:5000/token?token=ЗНАЧЕНИЕ_ТОКЕНА
