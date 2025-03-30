@@ -89,7 +89,7 @@ sequenceDiagram
 ## Локальный запуск
 
 1. Установить и запустить сервис авторизации https://github.com/grigandal625/AT_USER по ридми, создать в нем пользователя
-2. `git clone https://github.com/leerycorsair/at_simulation_api` и `cd at_simulation_api`
+2. `git clone https://github.com/grigandal625/at_simulation_api` и `cd at_simulation_api`
 
 3. **Если делали это в AT_USER, пропускаем:** Установить Docker
 4. **Если делали это в AT_USER, пропускаем:** Установить и запустить RabbtMQ (можно в докере, с открытием портов и с доступом RabbitMQ на localhost)
