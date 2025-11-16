@@ -1,6 +1,6 @@
 from functools import lru_cache
 
-from pydantic import Field
+from pydantic import Field, field_validator
 from pydantic_settings import BaseSettings
 from yarl import URL
 
@@ -11,11 +11,18 @@ class RabbitMQConfig(BaseSettings):
     login: str = Field(..., alias="RABBITMQ_LOGIN")
     password: str = Field(..., alias="RABBITMQ_PASSWORD")
     virtualhost: str = Field(..., alias="RABBITMQ_VHOST")
-    ssl: bool = Field(..., alias="RABBITMQ_SSL")
+    ssl: bool = Field(default=False, alias="RABBITMQ_SSL")
+
+    @field_validator("ssl", mode="before")
+    @classmethod
+    def str_to_bool(cls, v):
+        if isinstance(v, str):
+            return v.lower() in ("true", "1", "yes")
+        return bool(v)
 
     @property
     def url(self) -> URL:
-        scheme = "amqps" if self.ssl else "amqp"
+        scheme = "amqps" if str(self.ssl).strip().lower() in ['true', '1', 'yes', 'y', 't'] else "amqp"
         return URL.build(
             scheme=scheme,
             host=self.host,

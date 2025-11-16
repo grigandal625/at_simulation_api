@@ -8,7 +8,7 @@ class MinioConfig(BaseSettings):
     host: str = Field(..., alias="MINIO_HOST")
     access_key: str = Field(..., alias="MINIO_ACCESS_KEY")
     secret_key: str = Field(..., alias="MINIO_SECRET_KEY")
-    secure: bool = Field(..., alias="MINIO_SECURE")
+    secure: bool = Field(default=False, alias="MINIO_SECURE")
     bucket_name: str = Field(..., alias="MINIO_BUCKET_NAME")
     api_port: int = Field(..., alias="MINIO_API_PORT")
     console_port: int = Field(..., alias="MINIO_CONSOLE_PORT")
