@@ -13,13 +13,6 @@ class RabbitMQConfig(BaseSettings):
     virtualhost: str = Field(..., alias="RABBITMQ_VHOST")
     ssl: bool = Field(default=False, alias="RABBITMQ_SSL")
 
-    @field_validator("ssl", mode="before")
-    @classmethod
-    def str_to_bool(cls, v):
-        if isinstance(v, str):
-            return v.lower() in ("true", "1", "yes")
-        return bool(v)
-
     @property
     def url(self) -> URL:
         scheme = "amqps" if str(self.ssl).strip().lower() in ['true', '1', 'yes', 'y', 't'] else "amqp"
