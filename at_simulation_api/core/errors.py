@@ -3,6 +3,10 @@ import inspect
 import types
 from http import HTTPStatus
 from typing import Any
+import logging
+import traceback
+
+logger = logging.getLogger("AT_SIMULATION_API")
 
 
 class Error(Exception):
@@ -92,6 +96,7 @@ def wrap_exceptions():
             try:
                 return func(*args, **kwargs)
             except Error as e:
+                logger.error(traceback.format_exc())
                 class_name = None
                 if len(args) > 0:
                     instance_or_cls = args[0]
@@ -104,6 +109,7 @@ def wrap_exceptions():
                 e.error = f"{class_name}.{method_name}: {str(e)}"
                 raise e
             except Exception as e:
+                logger.error(traceback.format_exc())
                 class_name = None
                 if len(args) > 0:
                     instance_or_cls = args[0]
